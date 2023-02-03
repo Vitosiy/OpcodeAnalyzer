@@ -1,7 +1,7 @@
-srcdir = /home/kali/OpcodeScanner/VLD-0.18.0_modified_version
-builddir = /home/kali/OpcodeScanner/VLD-0.18.0_modified_version
-top_srcdir = /home/kali/OpcodeScanner/VLD-0.18.0_modified_version
-top_builddir = /home/kali/OpcodeScanner/VLD-0.18.0_modified_version
+srcdir = /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version
+builddir = /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version
+top_srcdir = /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version
+top_builddir = /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version
 EGREP = /usr/bin/grep -E
 SED = /usr/bin/sed
 CONFIGURE_COMMAND = './configure'
@@ -19,7 +19,7 @@ prefix = /usr
 exec_prefix = $(prefix)
 libdir = ${exec_prefix}/lib
 prefix = /usr
-phplibdir = /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/modules
+phplibdir = /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/modules
 phpincludedir = /usr/include/php/20210902
 CC = cc
 CFLAGS = -g -O2
@@ -203,17 +203,17 @@ prof-use:
 .PHONY: all clean install distclean test prof-gen prof-clean prof-use
 .NOEXPORT:
 -include vld.dep
-vld.lo: /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/vld.c
-	$(LIBTOOL) --mode=compile $(CC) -I. -I/home/kali/OpcodeScanner/VLD-0.18.0_modified_version $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)    -DZEND_COMPILE_DL_EXT=1 -c /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/vld.c -o vld.lo  -MMD -MF vld.dep -MT vld.lo
+vld.lo: /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/vld.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)    -DZEND_COMPILE_DL_EXT=1 -c /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/vld.c -o vld.lo  -MMD -MF vld.dep -MT vld.lo
 -include srm_oparray.dep
-srm_oparray.lo: /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/srm_oparray.c
-	$(LIBTOOL) --mode=compile $(CC) -I. -I/home/kali/OpcodeScanner/VLD-0.18.0_modified_version $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)    -DZEND_COMPILE_DL_EXT=1 -c /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/srm_oparray.c -o srm_oparray.lo  -MMD -MF srm_oparray.dep -MT srm_oparray.lo
+srm_oparray.lo: /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/srm_oparray.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)    -DZEND_COMPILE_DL_EXT=1 -c /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/srm_oparray.c -o srm_oparray.lo  -MMD -MF srm_oparray.dep -MT srm_oparray.lo
 -include set.dep
-set.lo: /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/set.c
-	$(LIBTOOL) --mode=compile $(CC) -I. -I/home/kali/OpcodeScanner/VLD-0.18.0_modified_version $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)    -DZEND_COMPILE_DL_EXT=1 -c /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/set.c -o set.lo  -MMD -MF set.dep -MT set.lo
+set.lo: /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/set.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)    -DZEND_COMPILE_DL_EXT=1 -c /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/set.c -o set.lo  -MMD -MF set.dep -MT set.lo
 -include branchinfo.dep
-branchinfo.lo: /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/branchinfo.c
-	$(LIBTOOL) --mode=compile $(CC) -I. -I/home/kali/OpcodeScanner/VLD-0.18.0_modified_version $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)    -DZEND_COMPILE_DL_EXT=1 -c /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/branchinfo.c -o branchinfo.lo  -MMD -MF branchinfo.dep -MT branchinfo.lo
+branchinfo.lo: /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/branchinfo.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)    -DZEND_COMPILE_DL_EXT=1 -c /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/branchinfo.c -o branchinfo.lo  -MMD -MF branchinfo.dep -MT branchinfo.lo
 $(phplibdir)/vld.la: ./vld.la
 	$(LIBTOOL) --mode=install cp ./vld.la $(phplibdir)
 

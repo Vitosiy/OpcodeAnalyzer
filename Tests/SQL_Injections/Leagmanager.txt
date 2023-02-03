@@ -1,5 +1,3 @@
-
-
 Finding entry points
 filename:       /var/www/html/wp-content/plugins/leaguemanager/lib/core.php
 function name:  __construct
@@ -36,8 +34,6 @@ line      #* E I O op                           fetch          ext  return  oper
          26      > RETURN                                                   null
 
 End of function __construct
-
-
 
 Finding entry points
 filename:       /var/www/html/wp-content/plugins/leaguemanager/lib/core.php
@@ -117,8 +113,6 @@ line      #* E I O op                           fetch          ext  return  oper
 
 End of function getleague
 
-
-
 Finding entry points
 filename:       /var/www/html/wp-content/plugins/leaguemanager/lib/core.php
 function name:  getLeagueID
@@ -131,8 +125,6 @@ line      #* E I O op                           fetch          ext  return  oper
           2      > RETURN                                                   ~0
 
 End of function getleagueid
-
-
 
 Finding entry points
 filename:       /var/www/html/wp-content/plugins/leaguemanager/lib/core.php

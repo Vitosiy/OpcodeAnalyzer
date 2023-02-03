@@ -1,0 +1,68 @@
+Finding entry points
+filename:       /var/www/html/wp-content/plugins/answer-my-question/functions.inc.php
+function name:  (null)
+number of ops:  61
+compiled vars:  !0 = $amq_db_version, !1 = $plugindir
+line      #* E I O op                           fetch          ext  return  operands
+-------------------------------------------------------------------------------------
+    2     0  E >   EXT_STMT
+          1        DEFINED                                                  'ABSPATH'
+          2      > JMPNZ                                                    ~2, ->11
+          3    >   EXT_STMT
+          4        INIT_FCALL                                               'define'
+          5        SEND_VAL                                                 'ABSPATH'
+          6        INIT_FCALL                                               'dirname'
+          7        SEND_VAL                                                 '%2Fvar%2Fwww%2Fhtml%2Fwp-content%2Fplugins%2Fanswer-my-question%2Ffunctions.inc.php'
+          8        DO_FCALL                                      0  $2
+          9        SEND_VAR                                                 $2
+         10        DO_FCALL                                      0
+    3    11    >   EXT_STMT
+         12        FETCH_CONSTANT                                   ~3      'ABSPATH'
+         13        FAST_CONCAT                                      ~2      ~3, 'wp-admin%2Fincludes%2Fupgrade.php'
+         14        INCLUDE_OR_EVAL                                          ~2, REQUIRE_ONCE
+    4    15        EXT_STMT
+         16        BIND_GLOBAL                                              !0, 'amq_db_version'
+    5    17        EXT_STMT
+         18        ASSIGN                                                   !0, '1.3'
+    6    19        EXT_STMT
+         20        INIT_FCALL_BY_NAME                                       'plugin_dir_url'
+         21        SEND_VAL_EX                                              '%2Fvar%2Fwww%2Fhtml%2Fwp-content%2Fplugins%2Fanswer-my-question%2Ffunctions.inc.php'
+         22        DO_FCALL                                      0  $2
+         23        ASSIGN                                                   !1, $2
+    9    24        EXT_STMT
+         25        FETCH_IS                                         ~3      '_POST'
+         26        ISSET_ISEMPTY_DIM_OBJ                         0          ~3, 'posted'
+         27      > JMPZ                                                     ~2, ->47
+         28    >   FETCH_R                      global              ~4      '_POST'
+         29        FETCH_DIM_R                                      ~3      ~4, 'posted'
+         30        IS_EQUAL                                                 ~3, 1
+         31      > JMPZ                                                     ~2, ->47
+         32    >   FETCH_R                      global              ~3      '_POST'
+         33        FETCH_DIM_R                                      ~2      ~3, 'id'
+         34      > JMPZ                                                     ~2, ->47
+   10    35    >   EXT_STMT
+         36        INIT_FCALL                                               'updatequestiondata'
+         37        FETCH_R                      global              $2      '_POST'
+         38        SEND_VAR                                                 $2
+         39        DO_FCALL                                      0
+   15    40        EXT_STMT
+         41        INIT_FCALL_BY_NAME                                       '__'
+         42        SEND_VAL_EX                                              'Updates+Saved%21'
+         43        DO_FCALL                                      0  $2
+         44        CONCAT                                           ~3      '%0D%0A%09%3Cdiv+class%3D%22updated%22%3E+%0D%0A%09%09%3Cp%3E%3Cstrong%3E', $2
+         45        CONCAT                                           ~2      ~3, '%3C%2Fstrong%3E%3C%2Fp%3E%0D%0A%09%3C%2Fdiv%3E'
+         46        ECHO                                                     ~2
+  474    47    >   EXT_STMT
+         48        INIT_FCALL_BY_NAME                                       'load_plugin_textdomain'
+         49        SEND_VAL_EX                                              'amq_plugin_I18n'
+         50        SEND_VAL_EX                                              <false>
+         51        INIT_FCALL                                               'basename'
+         52        INIT_FCALL                                               'dirname'
+         53        SEND_VAL                                                 '%2Fvar%2Fwww%2Fhtml%2Fwp-content%2Fplugins%2Fanswer-my-question%2Ffunctions.inc.php'
+         54        DO_FCALL                                      0  $2
+         55        SEND_VAR                                                 $2
+         56        DO_FCALL                                      0  $3
+         57        CONCAT                                           ~2      $3, '%2Flanguages'
+         58        SEND_VAL_EX                                              ~2
+         59        DO_FCALL                                      0
+  476    60      > RETURN                                                   1

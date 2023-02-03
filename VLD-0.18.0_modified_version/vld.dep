@@ -1,5 +1,5 @@
-vld.lo: /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/vld.c \
- /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/config.h \
+vld.lo: /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/vld.c \
+ /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/config.h \
  /usr/include/php/20210902/main/php.h \
  /usr/include/php/20210902/main/php_config.h \
  /usr/include/php/20210902/main/php_version.h \
@@ -88,6 +88,6 @@ vld.lo: /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/vld.c \
  /usr/include/php/20210902/ext/standard/info.h \
  /usr/include/php/20210902/ext/standard/php_string.h \
  /usr/include/php/20210902/ext/standard/url.h \
- /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/php_vld.h \
- /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/srm_oparray.h \
+ /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/php_vld.h \
+ /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/srm_oparray.h \
  /usr/include/php/20210902/main/php_globals.h

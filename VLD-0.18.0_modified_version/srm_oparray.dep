@@ -1,4 +1,4 @@
-srm_oparray.lo: /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/srm_oparray.c \
+srm_oparray.lo: /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/srm_oparray.c \
  /usr/include/php/20210902/main/php.h \
  /usr/include/php/20210902/main/php_config.h \
  /usr/include/php/20210902/main/php_version.h \
@@ -83,8 +83,8 @@ srm_oparray.lo: /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/srm_oparray
  /usr/include/php/20210902/TSRM/TSRM.h \
  /usr/include/php/20210902/Zend/zend_constants.h \
  /usr/include/php/20210902/main/php_reentrancy.h \
- /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/branchinfo.h /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/set.h \
- /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/php_vld.h \
+ /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/branchinfo.h /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/set.h \
+ /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/php_vld.h \
  /usr/include/php/20210902/Zend/zend_compile.h \
- /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/srm_oparray.h \
+ /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/srm_oparray.h \
  /usr/include/php/20210902/ext/standard/url.h

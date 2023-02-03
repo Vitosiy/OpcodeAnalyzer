@@ -1,5 +1,5 @@
 start_point:
-FETCH_R        ~*value*      *def_var*
+FETCH_R        *value*      *def_var*
 
 signature:
 name: leak_db_from_update

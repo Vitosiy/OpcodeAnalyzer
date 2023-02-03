@@ -223,7 +223,10 @@ class SignatureWorker:
             var = vars_map.get(opcode.operands[operand_number])
             if var and var.var_score == opcodes.VarScore.UNSECURE:
                 var.var_score = opcodes.VarScore.DANGEROUS
-                return self._print_var_status(var, fcall_buffer[fcall_count - 1].name, opcode.index, EP,
+                vuln_func_name = fcall_buffer[0].name
+                for func in fcall_buffer[1:]:
+                    vuln_func_name += "->" + func.name
+                return self._print_var_status(var, vuln_func_name, opcode.index, EP,
                                                     statement)
 
         for statement in statements:

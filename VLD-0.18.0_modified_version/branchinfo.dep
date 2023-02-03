@@ -1,6 +1,9 @@
-branchinfo.lo: /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/branchinfo.c \
- /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/branchinfo.h /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/set.h \
- /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/php_vld.h /usr/include/php/20210902/main/php.h \
+branchinfo.lo: \
+ /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/branchinfo.c \
+ /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/branchinfo.h \
+ /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/set.h \
+ /home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/php_vld.h \
+ /usr/include/php/20210902/main/php.h \
  /usr/include/php/20210902/main/php_config.h \
  /usr/include/php/20210902/main/php_version.h \
  /usr/include/php/20210902/Zend/zend.h \

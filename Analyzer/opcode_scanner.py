@@ -9,7 +9,10 @@ from Analyzer.arguments.parser import ArgumentParser, ScanMode
 # -v sqli -s opcode_file -p /var/www/html/vld_output.txt
 
 # opcode_file:
-# -v sqli -s opcode_file -p /home/kali/OpcodeScanner/Logs/my_test_opcodes2.txt
+# -v sqli -s opcode_file -p /home/kali/OpcodeAnalyzer/Tests/SQL_Injections/Easy_Modal.txt
+# -v sqli -s opcode_file -p /home/kali/OpcodeAnalyzer/Tests/SQL_Injections/Leagmanager.txt
+# -v sqli -s opcode_file -p /home/kali/OpcodeAnalyzer/Tests/SQL_Injections/Answer_my_question.txt
+
 
 # scan_dir:
 # -v sqli -s scan_dir -p /var/www/html/wp-content/plugins/easy-modal/classes/controller/admin/

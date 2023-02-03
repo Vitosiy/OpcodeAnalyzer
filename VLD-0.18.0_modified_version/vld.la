@@ -38,4 +38,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/home/kali/OpcodeScanner/VLD-0.18.0_modified_version/modules'
+libdir='/home/kali/OpcodeAnalyzer/VLD-0.18.0_modified_version/modules'
