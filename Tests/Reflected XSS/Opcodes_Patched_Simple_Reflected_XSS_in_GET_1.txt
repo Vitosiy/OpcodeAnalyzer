@@ -1,0 +1,77 @@
+Finding entry points
+Branch analysis from position: 0
+2 jumps found. (Code = 43) Position 1 = 4, Position 2 = 15
+Branch analysis from position: 4
+2 jumps found. (Code = 43) Position 1 = 19, Position 2 = 28
+Branch analysis from position: 19
+2 jumps found. (Code = 43) Position 1 = 32, Position 2 = 41
+Branch analysis from position: 32
+2 jumps found. (Code = 43) Position 1 = 45, Position 2 = 52
+Branch analysis from position: 45
+1 jumps found. (Code = 62) Position 1 = -2
+Branch analysis from position: 52
+Branch analysis from position: 41
+Branch analysis from position: 28
+Branch analysis from position: 15
+filename:       /var/www/html/tests/Patched_Simple_Reflected_XSS_in_GET_1.php
+function name:  (null)
+number of ops:  55
+compiled vars:  !0 = $get_var
+line      #* E I O op                           fetch          ext  return  operands
+-------------------------------------------------------------------------------------
+    4     0  E >   EXT_STMT                                                 
+          1        FETCH_IS                                         ~2      '_GET'
+          2        ISSET_ISEMPTY_DIM_OBJ                         0  ~1      ~2, 'var'
+          3      > JMPZ                                                     ~1, ->15
+    5     4    >   EXT_STMT                                                 
+          5        FETCH_R                      global              ~2      '_GET'
+          6        FETCH_DIM_R                                      ~1      ~2, 'var'
+          7        ASSIGN                                                   !0, ~1
+    6     8        EXT_STMT                                                 
+          9        INIT_FCALL                                               'htmlspecialchars'
+         10        SEND_VAR                                                 !0
+         11        DO_FCALL                                      0  $1      
+         12        ASSIGN                                                   !0, $1
+    7    13        EXT_STMT                                                 
+         14        ECHO                                                     !0
+   11    15    >   EXT_STMT                                                 
+         16        FETCH_IS                                         ~2      '_GET'
+         17        ISSET_ISEMPTY_DIM_OBJ                         0  ~1      ~2, 'var'
+         18      > JMPZ                                                     ~1, ->28
+   12    19    >   EXT_STMT                                                 
+         20        INIT_FCALL                                               'htmlspecialchars'
+         21        FETCH_R                      global              ~2      '_GET'
+         22        FETCH_DIM_R                                      ~1      ~2, 'var'
+         23        SEND_VAL                                                 ~1
+         24        DO_FCALL                                      0  $1      
+         25        ASSIGN                                                   !0, $1
+   13    26        EXT_STMT                                                 
+         27        ECHO                                                     !0
+   17    28    >   EXT_STMT                                                 
+         29        FETCH_IS                                         ~2      '_GET'
+         30        ISSET_ISEMPTY_DIM_OBJ                         0  ~1      ~2, 'var'
+         31      > JMPZ                                                     ~1, ->41
+   18    32    >   EXT_STMT                                                 
+         33        FETCH_R                      global              ~2      '_GET'
+         34        FETCH_DIM_R                                      ~1      ~2, 'var'
+         35        ASSIGN                                                   !0, ~1
+   19    36        EXT_STMT                                                 
+         37        INIT_FCALL                                               'htmlspecialchars'
+         38        SEND_VAR                                                 !0
+         39        DO_FCALL                                      0  $1      
+         40        ECHO                                                     $1
+   23    41    >   EXT_STMT                                                 
+         42        FETCH_IS                                         ~2      '_GET'
+         43        ISSET_ISEMPTY_DIM_OBJ                         0  ~1      ~2, 'var'
+         44      > JMPZ                                                     ~1, ->52
+   24    45    >   EXT_STMT                                                 
+         46        INIT_FCALL                                               'htmlspecialchars'
+         47        FETCH_R                      global              ~2      '_GET'
+         48        FETCH_DIM_R                                      ~1      ~2, 'var'
+         49        SEND_VAL                                                 ~1
+         50        DO_FCALL                                      0  $1      
+         51        ECHO                                                     $1
+   28    52    >   EXT_STMT                                                 
+         53        ECHO                                                     '%0A'
+   29    54      > RETURN                                                   1
+

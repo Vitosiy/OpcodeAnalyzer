@@ -1,0 +1,64 @@
+Finding entry points
+Branch analysis from position: 0
+2 jumps found. (Code = 43) Position 1 = 10, Position 2 = 14
+Branch analysis from position: 10
+2 jumps found. (Code = 43) Position 1 = 21, Position 2 = 28
+Branch analysis from position: 21
+2 jumps found. (Code = 43) Position 1 = 35, Position 2 = 42
+Branch analysis from position: 35
+1 jumps found. (Code = 62) Position 1 = -2
+Branch analysis from position: 42
+Branch analysis from position: 28
+Branch analysis from position: 14
+filename:       /var/www/html/tests/Patched_Simple_Reflected_XSS_in_GET_2.php
+function name:  (null)
+number of ops:  45
+compiled vars:  !0 = $get, !1 = $get_var
+line      #* E I O op                           fetch          ext  return  operands
+-------------------------------------------------------------------------------------
+    4     0  E >   EXT_STMT                                                 
+          1        INIT_FCALL                                               'htmlspecialchars'
+          2        FETCH_R                      global              ~3      '_GET'
+          3        FETCH_DIM_R                                      ~2      ~3, 'var'
+          4        SEND_VAL                                                 ~2
+          5        DO_FCALL                                      0  $2      
+          6        ASSIGN                                                   !0, $2
+    5     7        EXT_STMT                                                 
+          8        ISSET_ISEMPTY_CV                                 ~2      !0
+          9      > JMPZ                                                     ~2, ->14
+    6    10    >   EXT_STMT                                                 
+         11        ASSIGN                                                   !1, !0
+    7    12        EXT_STMT                                                 
+         13        ECHO                                                     !1
+   11    14    >   EXT_STMT                                                 
+         15        FETCH_R                      global              ~3      '_GET'
+         16        FETCH_DIM_R                                      ~2      ~3, 'var'
+         17        ASSIGN                                                   !0, ~2
+   12    18        EXT_STMT                                                 
+         19        ISSET_ISEMPTY_CV                                 ~2      !0
+         20      > JMPZ                                                     ~2, ->28
+   13    21    >   EXT_STMT                                                 
+         22        INIT_FCALL                                               'htmlspecialchars'
+         23        SEND_VAR                                                 !0
+         24        DO_FCALL                                      0  $2      
+         25        ASSIGN                                                   !1, $2
+   14    26        EXT_STMT                                                 
+         27        ECHO                                                     !1
+   18    28    >   EXT_STMT                                                 
+         29        FETCH_R                      global              ~3      '_GET'
+         30        FETCH_DIM_R                                      ~2      ~3, 'var'
+         31        ASSIGN                                                   !0, ~2
+   19    32        EXT_STMT                                                 
+         33        ISSET_ISEMPTY_CV                                 ~2      !0
+         34      > JMPZ                                                     ~2, ->42
+   20    35    >   EXT_STMT                                                 
+         36        ASSIGN                                                   !1, !0
+   21    37        EXT_STMT                                                 
+         38        INIT_FCALL                                               'htmlspecialchars'
+         39        SEND_VAR                                                 !1
+         40        DO_FCALL                                      0  $2      
+         41        ECHO                                                     $2
+   26    42    >   EXT_STMT                                                 
+         43        ECHO                                                     '%0A'
+   27    44      > RETURN                                                   1
+

@@ -1,0 +1,20 @@
+Finding entry points
+Branch analysis from position: 0
+1 jumps found. (Code = 62) Position 1 = -2
+filename:       /var/www/html/tests/Patched_Simplest_Reflected_XSS_in_GET.php
+function name:  (null)
+number of ops:  10
+compiled vars:  none
+line      #* E I O op                           fetch          ext  return  operands
+-------------------------------------------------------------------------------------
+    2     0  E >   EXT_STMT                                                 
+          1        INIT_FCALL                                               'htmlspecialchars'
+          2        FETCH_R                      global              ~1      '_GET'
+          3        FETCH_DIM_R                                      ~0      ~1, 'var'
+          4        SEND_VAL                                                 ~0
+          5        DO_FCALL                                      0  $0      
+          6        ECHO                                                     $0
+    4     7        EXT_STMT                                                 
+          8        ECHO                                                     '%0A'
+    5     9      > RETURN                                                   1
+

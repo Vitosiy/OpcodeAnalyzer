@@ -1,0 +1,60 @@
+Finding entry points
+filename:       /var/www/html/tests/SQLI/SimplestSQLInjection.php
+function name:  (null)
+number of ops:  52
+compiled vars:  !0 = $db, !1 = $var, !2 = $result, !3 = $row, !4 = $value, !5 = $field
+line      #* E I O op                           fetch          ext  return  operands
+-------------------------------------------------------------------------------------
+    2     0  E >   EXT_STMT                                                 
+          1        NEW                                              $6      'mysqli'
+          2        SEND_VAL_EX                                              'localhost'
+          3        SEND_VAL_EX                                              'root'
+          4        SEND_VAL_EX                                              'root'
+          5        SEND_VAL_EX                                              'productsdb'
+          6        DO_FCALL                                      0          
+          7        ASSIGN                                                   !0, $6
+    9     8        EXT_STMT                                                 
+          9        FETCH_R                      global              ~7      '_GET'
+         10        FETCH_DIM_R                                      ~6      ~7, 'var'
+         11        ASSIGN                                                   !1, ~6
+   10    12        EXT_STMT                                                 
+         13        INIT_METHOD_CALL                                         !0, 'query'
+         14        ROPE_INIT                                     3  ~7      'SELECT+%2A+FROM+Products+WHERE+Id+%3D+%22'
+         15        ROPE_ADD                                      1  ~7      ~7, !1
+         16        ROPE_END                                      2  ~6      ~7, '%22%3B'
+         17        SEND_VAL_EX                                              ~6
+         18        DO_FCALL                                      0  $6      
+         19        ASSIGN                                                   !2, $6
+   11    20        EXT_STMT                                                 
+         21      > JMPZ                                                     !2, ->48
+   13    22    >   EXT_STMT                                                 
+         23        ECHO                                                     '%3Ch2%3E%D0%A2%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0+Products%3A+%3C%2Fh2%3E'
+   14    24        EXT_STMT                                                 
+         25        ECHO                                                     '%3Ctable+border%3D%271%27%3E'
+   15    26        EXT_STMT                                                 
+         27      > JMP                                                      ->40
+   16    28    >   EXT_STMT                                                 
+         29      > FE_RESET_R                                       $6      !3, ->37
+         30    > > FE_FETCH_R                                       ~7      $6, !4, ->37
+         31    >   ASSIGN                                                   !5, ~7
+   17    32        EXT_STMT                                                 
+         33        CONCAT                                           ~8      '%3Ctd%3E', !4
+         34        CONCAT                                           ~7      ~8, '%3C%2Ftd%3E'
+         35        ECHO                                                     ~7
+   16    36      > JMP                                                      ->30
+         37    >   FE_FREE                                                  $6
+   19    38        EXT_STMT                                                 
+         39        ECHO                                                     '%3C%2Ftr%3E'
+   15    40    >   INIT_FCALL                                               'mysqli_fetch_assoc'
+         41        SEND_VAR                                                 !2
+         42        DO_FCALL                                      0  $7      
+         43        ASSIGN                                           $6      !3, $7
+         44      > JMPNZ                                                    $6, ->28
+   21    45    >   EXT_STMT                                                 
+         46        ECHO                                                     '%3C%2Ftable%3E'
+   30    47      > RETURN                                                   1
+   26    48    >   EXT_STMT                                                 
+         49        FETCH_OBJ_R                                      ~6      !0, 'error'
+         50        ECHO                                                     ~6
+   30    51      > RETURN                                                   1
+

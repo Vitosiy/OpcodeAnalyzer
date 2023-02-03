@@ -1,0 +1,18 @@
+-include vld.dep
+vld.lo: /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/vld.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/home/kali/OpcodeScanner/VLD-0.18.0_modified_version $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)    -DZEND_COMPILE_DL_EXT=1 -c /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/vld.c -o vld.lo  -MMD -MF vld.dep -MT vld.lo
+-include srm_oparray.dep
+srm_oparray.lo: /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/srm_oparray.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/home/kali/OpcodeScanner/VLD-0.18.0_modified_version $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)    -DZEND_COMPILE_DL_EXT=1 -c /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/srm_oparray.c -o srm_oparray.lo  -MMD -MF srm_oparray.dep -MT srm_oparray.lo
+-include set.dep
+set.lo: /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/set.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/home/kali/OpcodeScanner/VLD-0.18.0_modified_version $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)    -DZEND_COMPILE_DL_EXT=1 -c /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/set.c -o set.lo  -MMD -MF set.dep -MT set.lo
+-include branchinfo.dep
+branchinfo.lo: /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/branchinfo.c
+	$(LIBTOOL) --mode=compile $(CC) -I. -I/home/kali/OpcodeScanner/VLD-0.18.0_modified_version $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)    -DZEND_COMPILE_DL_EXT=1 -c /home/kali/OpcodeScanner/VLD-0.18.0_modified_version/branchinfo.c -o branchinfo.lo  -MMD -MF branchinfo.dep -MT branchinfo.lo
+$(phplibdir)/vld.la: ./vld.la
+	$(LIBTOOL) --mode=install cp ./vld.la $(phplibdir)
+
+./vld.la: $(shared_objects_vld) $(VLD_SHARED_DEPENDENCIES)
+	$(LIBTOOL) --mode=link $(CC) -shared $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) $(LDFLAGS)  -o $@ -export-dynamic -avoid-version -prefer-pic -module -rpath $(phplibdir) $(EXTRA_LDFLAGS) $(shared_objects_vld) $(VLD_SHARED_LIBADD)
+

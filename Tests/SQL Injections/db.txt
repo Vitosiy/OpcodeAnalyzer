@@ -1,0 +1,34 @@
+MariaDB [(none)]> CREATE DATABASE productsdb;
+MariaDB [(none)]> USE productsdb;
+MariaDB [productsdb]> CREATE TABLE Products
+    -> (
+    ->     Id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     ProductName VARCHAR(30) NOT NULL,
+    ->     Manufacturer VARCHAR(20) NOT NULL,
+    ->     ProductCount INT DEFAULT 0,
+    ->     Price DECIMAL NOT NULL
+    -> );
+
+MariaDB [productsdb]> INSERT Products(ProductName, Manufacturer, Price, ProductCount) 
+    -> VALUES
+    -> ('iPhone X', 'Apple', 5, 76000);
+    -> ('Galaxy S9', 'Samsung', 63000);
+    -> ('iPhone 8', 'Apple', 51000, 3),
+    -> ('P20 Lite', 'Huawei', 34000, 4),
+    -> ('Galaxy S8', 'Samsung', 46000, 2);
+
+
+MariaDB [productsdb]> select * from Products;
++----+-------------+--------------+--------------+-------+
+| Id | ProductName | Manufacturer | ProductCount | Price |
++----+-------------+--------------+--------------+-------+
+|  1 | iPhone X    | Apple        |            5 | 76000 |
+|  2 | Galaxy S9   | Samsung      |            0 | 63000 |
+|  3 | iPhone 8    | Apple        |            3 | 51000 |
+|  4 | P20 Lite    | Huawei       |            4 | 34000 |
+|  5 | Galaxy S8   | Samsung      |            2 | 46000 |
++----+-------------+--------------+--------------+-------+
+
+
+
+update mysql.user set authentication_string=PASSWORD(""), plugin="mysql_native_password" where User='root' and Host='localhost';

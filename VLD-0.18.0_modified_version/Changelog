@@ -1,0 +1,430 @@
+Wed Nov 25 13:55:40 CET 2009 Derick Rethans <derick@derickrethans.nl>
+srm_oparray.c:
+- PHP 5.3 fixes.
+
+Tue Oct 13 17:41:18 CEST 2009 Derick Rethans <derick@derickrethans.nl>
+srm_oparray.c:
+- The extended value is also used here, in cases assign_* is used with an
+  object or array.
+
+Fri Aug 28 13:09:00 CEST 2009 Derick Rethans <derick@derickrethans.nl>
+config.w32:
+- Fixed config.w32 file.
+
+Mon Mar 30 20:36:55 CEST 2009 Derick Rethans <derick@derickrethans.nl>
+vld.c:
+- This ought to fix compiling on PHP < 5.3 with ZTS enabled.
+
+Mon Mar 30 20:22:15 CEST 2009 Derick Rethans <derick@derickrethans.nl>
+php_vld.h
+vle/srm_oparray.c:
+- Fixing some issues with va_args.
+
+Thu Mar 05 16:42:32 CET 2009 Derick Rethans <derick@derickrethans.nl>
+vld.c:
+- Fixed typo.
+
+Tue Nov 04 17:02:45 CET 2008 Marcus Börger <helly@php.net>
+vld.c:
+- Fix TSRM build
+
+Thu Oct 23 13:05:07 CEST 2008 Derick Rethans <derick@derickrethans.nl>
+srm_oparray.c:
+- Fixed syntax errors.
+
+Wed Oct 22 10:40:07 CEST 2008 Derick Rethans <derick@derickrethans.nl>
+php_vld.h
+vle/srm_oparray.c
+vle/vld.c:
+- Added ZoÃ«'s patch for CVS style formatting.
+
+Fri Oct 03 16:42:47 CEST 2008 Derick Rethans <derick@derickrethans.nl>
+vld.c:
+- Resolved conflicts.
+
+Thu Oct 02 10:25:54 CEST 2008 Derick Rethans <derick@derickrethans.nl>
+package.xml
+vle/vld.c:
+- Add the config.w32 to the package XML file.
+
+Wed Oct 01 18:31:37 CEST 2008 Derick Rethans <derick@derickrethans.nl>
+php_vld.h:
+- Fixed compilation with Windows.
+
+Tue Aug 26 19:40:56 CEST 2008 Marcus Börger <helly@php.net>
+config.w32:
+- Add config.w32
+
+
+Sun Aug 17 11:29:20 CEST 2008 Marcus Börger <helly@php.net>
+vld.c:
+- Fix build with 5.3+
+
+
+Sat Jul 12 15:19:07 CEST 2008 Derick Rethans <derick@derickrethans.nl>
+srm_oparray.c:
+- SEND_VAR_NO_REF needs to use extended value (Patch by Graham K.)
+
+Tue Apr 01 20:00:54 CEST 2008 Derick Rethans <derick@derickrethans.nl>
+package.xml
+vle/package2.xml
+vle/vld.c:
+- Prepare for 0.9.1.
+
+Sun Mar 30 15:01:44 CEST 2008 Derick Rethans <derick@derickrethans.nl>
+srm_oparray.c
+vle/vld.c:
+- Fixed off-by-one error.
+
+Sun Jan 06 17:44:06 CET 2008 Marcus Börger <helly@php.net>
+php_vld.h
+vle/vld.c:
+- Fixes for HEAD
+Thu Nov 29 14:13:44 CET 2007 Derick Rethans <derick@derickrethans.nl>
+package.xml
+vle/package2.xml:
+- Updated package files for new release.
+
+Thu Nov 29 14:12:32 CET 2007 Derick Rethans <derick@derickrethans.nl>
+srm_oparray.c:
+- Some tweaks.
+
+Mon Nov 26 10:01:28 CET 2007 Derick Rethans <derick@derickrethans.nl>
+vld.c:
+- Fix for when functions are conditionally defined. (Patch by Damjan Cvetko).
+
+Wed Aug 01 09:12:20 CEST 2007 Derick Rethans <derick@derickrethans.nl>
+vld.c:
+- zend_compile_string is only in PHP 5.2 and higher. (Patch by Gopal)
+
+Sun May 06 15:16:29 CEST 2007 Derick Rethans <derick@derickrethans.nl>
+vld.c:
+- Added showing of INI entries in phpinfo() output.
+
+Thu Feb 22 10:21:37 CET 2007 Derick Rethans <derick@derickrethans.nl>
+vld.c:
+- Added support for dumping opcodes for eval() as well.
+
+Wed Jan 17 22:14:11 CET 2007 Sara Goleman <vld@golemon.com>
+srm_oparray.c:
+PHP5 renamed opcodes, extra info for throw/catch, and display CV names
+Sat Dec 23 21:04:40 CET 2006 Derick Rethans <derick@derickrethans.nl>
+srm_oparray.c:
+- PHP 4.4 compatibility.
+
+Mon Nov 06 18:56:12 CET 2006 Derick Rethans <derick@derickrethans.nl>
+srm_oparray.c:
+- Make this compile with PHP 4.4 as well.
+
+Mon Nov 06 16:00:25 CET 2006 Derick Rethans <derick@derickrethans.nl>
+srm_oparray.c:
+- Make CVs not only show nulls.
+
+Wed Oct 25 16:44:22 CEST 2006 Derick Rethans <derick@derickrethans.nl>
+php_vld.h
+vle/srm_oparray.c
+vle/srm_oparray.h
+vle/vld.c:
+- Added multiple verbosity levels for dumping out information of different
+  kinds.
+- Added Ilia's patch to add extra verbosity as level 3.
+- Added Ilia's patch to fix include's OP2 printing.
+
+Thu Oct 19 22:39:12 CEST 2006 Derick Rethans <derick@derickrethans.nl>
+srm_oparray.c
+vle/vld.c:
+- Improved throw dead code analysis.
+
+Tue Sep 26 11:40:26 CEST 2006 Derick Rethans <derick@derickrethans.nl>
+set.c
+vle/set.h
+vle/Makefile.in
+vle/package.xml
+vle/srm_oparray.c
+vle/srm_oparray.h:
+- Added dead code analysis instrumentation.
+
+Thu Aug 31 15:18:57 CEST 2006 Derick Rethans <derick@derickrethans.nl>
+vld.c:
+- Make sure to handle this in RINIT instead so that it works with APC.
+
+Mon Jun 20 02:47:25 CEST 2005 Marcus Börger <helly@php.net>
+srm_oparray.c:
+- Update to PHP 5.1
+
+Wed Mar 02 16:08:53 CET 2005 Derick Rethans <derick@derickrethans.nl>
+package2.xml:
+- Added package2 xml
+
+Sat Jan 29 23:26:51 CET 2005 Marcus Börger <helly@php.net>
+srm_oparray.c:
+- Now commit correct check for FE_RESET jump
+
+Sat Jan 29 23:21:17 CET 2005 Marcus Börger <helly@php.net>
+srm_oparray.c:
+- FE_RESET is a jump only since 4.3.11
+
+Sat Jan 29 21:41:36 CET 2005 Marcus Börger <helly@php.net>
+srm_oparray.c
+vle/srm_oparray.h:
+- Show FE_RESET/FE_FETCH jumps
+
+Wed Jan 19 15:36:00 CET 2005 Derick Rethans <derick@derickrethans.nl>
+package.xml
+vle/vld.c:
+- Go with 0.8.0
+
+Thu Nov 04 22:51:36 CET 2004 Marcus Börger <helly@php.net>
+srm_oparray.c
+vle/srm_oparray.h:
+- Fix JMPNZ
+- Fix for Zend engine >= 2.1 aka PHP >= 5.1
+
+Thu Sep 09 15:15:56 CEST 2004 Marcus Börger <helly@php.net>
+srm_oparray.c:
+- JMP_NO_CTOR's jump address is already valid for ZE1
+
+Thu Sep 09 14:59:50 CEST 2004 Marcus Börger <helly@php.net>
+srm_oparray.c:
+- Remove opcode 150 which is not yet comitted to ZE2
+
+Thu Sep 09 14:58:02 CEST 2004 Marcus Börger <helly@php.net>
+srm_oparray.c
+vle/srm_oparray.h:
+- Show classes with prefix ':' for ZE2's ZEND_FETCH_CLASS and NEW
+
+Thu Sep 09 13:58:29 CEST 2004 Marcus Börger <helly@php.net>
+srm_oparray.c:
+- Fixed JMP_NO_CTOR
+
+Tue Aug 31 09:07:25 CEST 2004 Marcus Börger <helly@php.net>
+srm_oparray.c:
+- Don't show a comma in front of an unused optional op
+
+Mon Aug 30 00:52:38 CEST 2004 Marcus Börger <helly@php.net>
+srm_oparray.c:
+- Fixed QM_ASSIGN
+
+Mon Aug 30 00:23:05 CEST 2004 Marcus Börger <helly@php.net>
+srm_oparray.c:
+- Fixed JPNZ
+
+Fri Aug 06 10:29:26 CEST 2004 Marcus Börger <helly@php.net>
+srm_oparray.c:
+- ZEND_HANDLE_EXCEPTION does not use any opcode info
+
+Sun Jun 06 14:17:24 CEST 2004 Marcus Börger <helly@php.net>
+vld.c:
+- Fix memleak
+
+Sat Apr 17 16:27:48 CEST 2004 Marcus Börger <helly@php.net>
+vld.c:
+- Added INI option vld.execute which defaults to 1. Setting it to 0 
+  disables execution when vld.active=1. 
+- Added INI options vld.skip_prepend and vld_skip_append which default to
+  0. Setting them to 1 suppresses output and loading of auto_prepend_file
+  and auto_append_file respectively if vld.active=1 and vld.execute=0.
+
+Sat Apr 17 15:14:00 CEST 2004 Marcus Börger <helly@php.net>
+srm_oparray.c:
+- Show all zval types even though this may currently not be used.
+  It helps debugging the interpreter.
+
+Fri Apr 16 21:45:29 CEST 2004 Marcus Börger <helly@php.net>
+srm_oparray.c:
+The 2nd op is the constant's name in FETCH_CONSTANT's RT mode
+Fri Apr 16 10:01:38 CEST 2004 Derick Rethans <derick@derickrethans.nl>
+CREDITS:
+- Added Marcus to the credits
+
+Tue Dec 16 20:42:29 CET 2003 Derick Rethans <d.rethans@jdimedia.nl>
+/vle/vld.dsw
+/vle/vld.dsp
+/vle/srm_oparray.c:
+- Added windows project files
+- Silence warning
+
+Tue Nov 4 15:04:56 CET 2003 Derick Rethans <d.rethans@jdimedia.nl>
+/vle/srm_oparray.c:
+- Fixed jump line display
+
+Mon Oct 20 12:08:01 CEST 2003 Derick Rethans <d.rethans@jdimedia.nl>
+/vle/php_vld.h
+/vle/srm_oparray.h
+/vle/vld.c:
+- Fixed email addresses
+
+Mon Oct 20 12:07:27 CEST 2003 Derick Rethans <d.rethans@jdimedia.nl>
+/vle/srm_oparray.c:
+- Fixed some opcode displays
+
+Fri Sep 19 10:44:50 CEST 2003 Derick Rethans <d.rethans@jdimedia.nl>
+/vle/srm_oparray.c:
+- Added new opcode
+
+Thu Sep 18 20:43:11 CEST 2003 Derick Rethans <d.rethans@jdimedia.nl>
+/vle/package.xml:
+- Whitespace
+
+Thu Sep 18 20:42:09 CEST 2003 Derick Rethans <d.rethans@jdimedia.nl>
+/vle/package.xml:
+- Add PEAR package.xml file
+
+Thu Sep 18 17:59:19 CEST 2003 Derick Rethans <d.rethans@jdimedia.nl>
+/vle/.cvsignore:
+- Update .cvsignore file with phpize crapola
+
+Thu Sep 18 17:56:50 CEST 2003 Derick Rethans <d.rethans@jdimedia.nl>
+/vle/vld.c:
+- Make only user defined classes show up (Patch by Marcus Börger)
+
+Mon Apr 7 22:46:26 CEST 2003 Andrei Zmievski <andrei@gravitonic.com>
+/vle/vld.c:
+Turn off VLD by default.
+
+Mon Apr 7 22:35:19 CEST 2003 Sterling Hughes <sterling@php.net>
+/vle/srm_oparray.c
+/vle/vld.c:
+- Send all output to standard error, that way script output, and vld 
+  output can be easily separated.
+
+Mon Apr 7 22:25:51 CEST 2003 Sterling Hughes <sterling@php.net>
+/vle/vld.c:
+- Fix class handling properly.  In Zend Engine 2 classes are stored as a 
+  double pointer, not a single pointer.
+
+Mon Apr 7 22:16:28 CEST 2003 Derick Rethans <d.rethans@jdimedia.nl>:
+- Fix ChangeLog
+
+Mon Apr 7 22:14:21 CEST 2003 Sterling Hughes <sterling@php.net>
+/vle/vld.c:
+- Fix a segfault under Zend Engine 2, by checking for class_entry->type ==
+  ZEND_USER_CLASS, instead of apply'ing on non-user classes (which causes a
+  segfault).
+
+Mon Apr 7 20:28:15 CEST 2003 Derick Rethans <d.rethans@jdimedia.nl>
+/vle/srm_oparray.c:
+- Some layout things
+
+Sat Mar 15 14:07:55 CET 2003 Derick Rethans <d.rethans@jdimedia.nl>
+/vle/srm_oparray.c
+/vle/vld.c:
+- Added an ini setting that turns off opcode dumping (Patch by 
+  Marcus Börger <marcus.boerger@t-online.de>)
+
+Sun Feb 23 20:11:16 CET 2003 Derick Rethans <d.rethans@jdimedia.nl>
+/vle/srm_oparray.c:
+- Fixed disassembling of JMPZNZ. (patch by Stefan Esser <sesser@php.net>)
+- Fixed disassembling of POST_INC, PRE_INC, POST_DEC and PRE_DEC.
+
+Thu Jan 2 22:13:19 CET 2003 Derick Rethans <d.rethans@jdimedia.nl>
+/vle/CREDITS:
+- Fix CREDITS
+
+Thu Jan 2 22:12:02 CET 2003 Derick Rethans <d.rethans@jdimedia.nl>
+/vle/srm_oparray.c
+/vle/srm_oparray.h
+/vle/vld.c:
+- Administrivia
+
+Thu Jan 2 22:09:07 CET 2003 Derick Rethans <d.rethans@jdimedia.nl>:
+- Fix ChangeLog
+
+Tue Nov 26 22:07:24 CET 2002 Andrei Zmievski <andrei@gravitonic.com>
+/vle/srm_oparray.c:
+
+Fri Nov 22 23:26:55 CET 2002 Andrei Zmievski <andrei@gravitonic.com>
+/vle/srm_oparray.c:
+
+Fri Nov 22 22:55:11 CET 2002 Derick Rethans <d.rethans@jdimedia.nl>
+/vle/srm_oparray.c
+/vle/srm_oparray.h
+/vle/vld.c:
+- s/srm/vld/gi
+
+Fri Nov 22 19:10:30 CET 2002 Andrei Zmievski <andrei@gravitonic.com>
+/vle/srm_oparray.c
+/vle/srm_oparray.h:
+- Print extended value for function calls (# of args in that case).
+
+Fri Nov 22 17:40:44 CET 2002 Andrei Zmievski <andrei@gravitonic.com>
+/vle/srm_oparray.c:
+- urlencode strings for now
+- update a couple more opcode flags
+- if result of an op is unused don't display it -> looks much cleaner
+
+Thu Nov 21 21:28:57 CET 2002 Andrei Zmievski <andrei@gravitonic.com>
+/vle/srm_oparray.c
+/vle/vld.c:
+- Don't show empty opcodes at the end.
+
+Thu Nov 21 17:41:07 CET 2002 Andrei Zmievski <andrei@gravitonic.com>
+/vle/srm_oparray.c:
+
+Thu Nov 21 16:35:01 CET 2002 Andrei Zmievski <andrei@gravitonic.com>
+/vle/srm_oparray.c
+/vle/vld.c:
+- Dump class methods info only if it contains some user functions.
+
+Wed Nov 20 23:27:52 CET 2002 Andrei Zmievski <andrei@gravitonic.com>
+/vle/srm_oparray.c
+/vle/srm_oparray.h:
+- More work on opcodes.
+
+Wed Nov 20 21:23:55 CET 2002 Andrei Zmievski <andrei@gravitonic.com>
+/vle/srm_oparray.c
+/vle/srm_oparray.h
+/vle/vld.c:
+- Clean up and put in the framework for better opcode display.
+
+Wed Nov 13 21:49:56 CET 2002 Andrei Zmievski <andrei@gravitonic.com>
+/vle/srm_oparray.c
+/vle/srm_oparray.h
+/vle/vld.c:
+- Fix compilation warnings.
+
+Mon Oct 28 16:41:40 CET 2002 Derick Rethans <d.rethans@jdimedia.nl>
+/vle/srm_oparray.c
+/vle/vld.c:
+- Fixed crash bug on parse errors
+
+Wed Oct 23 20:55:10 CEST 2002 Derick Rethans <d.rethans@jdimedia.nl>
+/vle/php_vld.h
+/vle/vld.c
+/vle/Makefile.in
+/vle/config.m4
+/vle/srm_oparray.c
+/vle/srm_oparray.h
+/vle/php_vle.h
+/vle/vle.c:
+- %s/vle/vld/i
+
+Sun Feb 17 14:47:32 CET 2002 Derick Rethans <d.rethans@jdimedia.nl>
+/vle/vle.c:
+- Enable optimize
+
+Fri Feb 1 09:54:32 CET 2002 Derick Rethans <d.rethans@jdimedia.nl>
+/vle/vle.c:
+- Fixed hash apply functions
+
+Fri Feb 1 09:48:38 CET 2002 Varun Shoor <plot@ript.net>
+/vle/vle.c:
+- Added Hashes
+- Made Class Dump Stuff
+
+Tue Jan 22 00:15:16 CET 2002 Derick Rethans <d.rethans@jdimedia.nl>
+/vle/srm_oparray.c
+/vle/vle.c:
+- Some function dumping stuff
+
+Tue Jan 22 00:01:41 CET 2002 Derick Rethans <d.rethans@jdimedia.nl>
+/vle/srm_oparray.c
+/vle/srm_oparray.h
+/vle/vle.c:
+- Some optimizer work
+
+Wed Jan 2 13:53:28 CET 2002 Derick Rethans <d.rethans@jdimedia.nl>
+/vle/srm_oparray.h
+/vle/vle.c:
+- Whitespace
+

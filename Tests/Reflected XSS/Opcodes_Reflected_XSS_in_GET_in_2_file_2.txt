@@ -1,0 +1,73 @@
+Finding entry points
+Branch analysis from position: 0
+1 jumps found. (Code = 62) Position 1 = -2
+filename:       /var/www/html/tests/Reflected_XSS_in_GET_in_2_file_2.php
+function name:  (null)
+number of ops:  13
+compiled vars:  !0 = $get_var
+line      #* E I O op                           fetch          ext  return  operands
+-------------------------------------------------------------------------------------
+    3     0  E >   EXT_STMT                                                 
+          1        INCLUDE_OR_EVAL                                          'Reflected_XSS_in_GET_in_2_file_1.php', INCLUDE
+    5     2        EXT_STMT                                                 
+          3        INIT_FCALL_BY_NAME                                       'unsecure_function'
+          4        DO_FCALL                                      0  $1      
+          5        ASSIGN                                                   !0, $1
+    6     6        EXT_STMT                                                 
+          7        INIT_FCALL_BY_NAME                                       'danger_function'
+          8        SEND_VAR_EX                                              !0
+          9        DO_FCALL                                      0          
+    9    10        EXT_STMT                                                 
+         11        ECHO                                                     '%0A'
+   10    12      > RETURN                                                   1
+
+Finding entry points
+Branch analysis from position: 0
+1 jumps found. (Code = 62) Position 1 = -2
+filename:       /var/www/html/tests/Reflected_XSS_in_GET_in_2_file_1.php
+function name:  (null)
+number of ops:  3
+compiled vars:  none
+line      #* E I O op                           fetch          ext  return  operands
+-------------------------------------------------------------------------------------
+   14     0  E >   EXT_STMT                                                 
+          1        ECHO                                                     '%0A'
+   15     2      > RETURN                                                   1
+
+Function unsecure_function:
+Finding entry points
+Branch analysis from position: 0
+1 jumps found. (Code = 62) Position 1 = -2
+filename:       /var/www/html/tests/Reflected_XSS_in_GET_in_2_file_1.php
+function name:  unsecure_function
+number of ops:  5
+compiled vars:  none
+line      #* E I O op                           fetch          ext  return  operands
+-------------------------------------------------------------------------------------
+    3     0  E >   EXT_NOP                                                  
+    5     1        EXT_STMT                                                 
+          2        FETCH_R                      global              ~1      '_GET'
+          3        FETCH_DIM_R                                      ~0      ~1, 'var'
+          4      > RETURN                                                   ~0
+
+End of function unsecure_function
+
+Function danger_function:
+Finding entry points
+Branch analysis from position: 0
+1 jumps found. (Code = 62) Position 1 = -2
+filename:       /var/www/html/tests/Reflected_XSS_in_GET_in_2_file_1.php
+function name:  danger_function
+number of ops:  6
+compiled vars:  !0 = $arg
+line      #* E I O op                           fetch          ext  return  operands
+-------------------------------------------------------------------------------------
+    8     0  E >   EXT_NOP                                                  
+          1        RECV                                             !0      
+   10     2        EXT_STMT                                                 
+          3        ECHO                                                     !0
+   11     4        EXT_STMT                                                 
+          5      > RETURN                                                   null
+
+End of function danger_function
+

@@ -1,0 +1,107 @@
+Finding entry points
+Branch analysis from position: 0
+1 jumps found. (Code = 62) Position 1 = -2
+filename:       /var/www/html/tests/Patched_Reflected_XSS_in_GET_in_3_file_3.php
+function name:  (null)
+number of ops:  9
+compiled vars:  !0 = $get_var
+line      #* E I O op                           fetch          ext  return  operands
+-------------------------------------------------------------------------------------
+    3     0  E >   EXT_STMT                                                 
+          1        INCLUDE_OR_EVAL                                          'Patched_Reflected_XSS_in_GET_in_3_file_2.php', INCLUDE
+    5     2        EXT_STMT                                                 
+          3        INIT_FCALL_BY_NAME                                       'patched_danger_function'
+          4        SEND_VAR_EX                                              !0
+          5        DO_FCALL                                      0          
+    8     6        EXT_STMT                                                 
+          7        ECHO                                                     '%0A'
+    9     8      > RETURN                                                   1
+
+Finding entry points
+Branch analysis from position: 0
+1 jumps found. (Code = 62) Position 1 = -2
+filename:       /var/www/html/tests/Patched_Reflected_XSS_in_GET_in_3_file_2.php
+function name:  (null)
+number of ops:  9
+compiled vars:  !0 = $get_var
+line      #* E I O op                           fetch          ext  return  operands
+-------------------------------------------------------------------------------------
+    3     0  E >   EXT_STMT                                                 
+          1        INCLUDE_OR_EVAL                                          'Patched_Reflected_XSS_in_GET_in_3_file_1.php', INCLUDE
+    5     2        EXT_STMT                                                 
+          3        INIT_FCALL_BY_NAME                                       'patched_unsecure_function'
+          4        DO_FCALL                                      0  $1      
+          5        ASSIGN                                                   !0, $1
+    8     6        EXT_STMT                                                 
+          7        ECHO                                                     '%0A'
+    9     8      > RETURN                                                   1
+
+Finding entry points
+Branch analysis from position: 0
+1 jumps found. (Code = 62) Position 1 = -2
+filename:       /var/www/html/tests/Patched_Reflected_XSS_in_GET_in_3_file_1.php
+function name:  (null)
+number of ops:  3
+compiled vars:  none
+line      #* E I O op                           fetch          ext  return  operands
+-------------------------------------------------------------------------------------
+   21     0  E >   EXT_STMT                                                 
+          1        ECHO                                                     '%0A'
+   22     2      > RETURN                                                   1
+
+Function patched_unsecure_function:
+Finding entry points
+Branch analysis from position: 0
+2 jumps found. (Code = 43) Position 1 = 11, Position 2 = 13
+Branch analysis from position: 11
+1 jumps found. (Code = 62) Position 1 = -2
+Branch analysis from position: 13
+1 jumps found. (Code = 62) Position 1 = -2
+filename:       /var/www/html/tests/Patched_Reflected_XSS_in_GET_in_3_file_1.php
+function name:  patched_unsecure_function
+number of ops:  15
+compiled vars:  !0 = $get
+line      #* E I O op                           fetch          ext  return  operands
+-------------------------------------------------------------------------------------
+    3     0  E >   EXT_NOP                                                  
+    5     1        EXT_STMT                                                 
+          2        INIT_FCALL                                               'htmlspecialchars'
+          3        FETCH_R                      global              ~2      '_GET'
+          4        FETCH_DIM_R                                      ~1      ~2, 'var'
+          5        SEND_VAL                                                 ~1
+          6        DO_FCALL                                      0  $1      
+          7        QM_ASSIGN                                        !0      $1
+    6     8        EXT_STMT                                                 
+          9        ISSET_ISEMPTY_CV                                 ~1      !0
+         10      > JMPZ                                                     ~1, ->13
+    7    11    >   EXT_STMT                                                 
+         12      > RETURN                                                   !0
+   10    13    >   EXT_STMT                                                 
+         14      > RETURN                                                   0
+
+End of function patched_unsecure_function
+
+Function patched_danger_function:
+Finding entry points
+Branch analysis from position: 0
+1 jumps found. (Code = 62) Position 1 = -2
+filename:       /var/www/html/tests/Patched_Reflected_XSS_in_GET_in_3_file_1.php
+function name:  patched_danger_function
+number of ops:  11
+compiled vars:  !0 = $arg, !1 = $tmp
+line      #* E I O op                           fetch          ext  return  operands
+-------------------------------------------------------------------------------------
+   14     0  E >   EXT_NOP                                                  
+          1        RECV                                             !0      
+   16     2        EXT_STMT                                                 
+          3        CONCAT                                           !1      !0, '%21%21%21+%0A'
+   17     4        EXT_STMT                                                 
+          5        INIT_FCALL                                               'htmlspecialchars'
+          6        SEND_VAR                                                 !1
+          7        DO_FCALL                                      0  $2      
+          8        ECHO                                                     $2
+   18     9        EXT_STMT                                                 
+         10      > RETURN                                                   null
+
+End of function patched_danger_function
+

