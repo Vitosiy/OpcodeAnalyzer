@@ -1,8 +1,8 @@
 import opcodes_parser as op_parser
-from Scanner.arguments.processor import ArgumentsProcessor
-from Scanner.arguments.vld.result_reader import ResultReader
-from Scanner.arguments.vld.starter import VldStarter
-from Scanner.arguments.parser import ArgumentParser, ScanMode
+from Analyzer.arguments.processor import ArgumentsProcessor
+from Analyzer.arguments.vld.result_reader import ResultReader
+from Analyzer.arguments.vld.starter import VldStarter
+from Analyzer.arguments.parser import ArgumentParser, ScanMode
 
 
 # Scan patterns:

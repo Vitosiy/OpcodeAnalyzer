@@ -1,7 +1,7 @@
 import os
 import re
 import time
-from Scanner.arguments.vld.starter import VldStarter
+from Analyzer.arguments.vld.starter import VldStarter
 
 
 class VldRebuilder:

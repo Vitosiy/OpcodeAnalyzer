@@ -1,5 +1,5 @@
 from typing.io import IO
-from Scanner.signature_worker import SignatureWorker, SignatureFiles
+from Analyzer.signature_worker import SignatureWorker, SignatureFiles
 from .parser import ScanMode, VulnerabilityType
 from .vld.rebuilder import VldRebuilder
 
