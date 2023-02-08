@@ -15,10 +15,18 @@ from Analyzer.arguments.parser import ArgumentParser, ScanMode
 
 
 # scan_dir:
+#sql:
 # -v sqli -s scan_dir -p /var/www/html/wp-content/plugins/easy-modal/classes/controller/admin/
 # -v sqli -s scan_dir -p /var/www/html/wp-content/plugins/answer-my-question/
 # -v sqli -s scan_dir -p /var/www/html/wp-content/plugins/product-catalog-8/
 # -v sqli -s scan_dir -p /var/www/html/wp-content/plugins/leaguemanager/
+
+# -v sqli -s scan_dir -p /var/www/html/wp-content/plugins/zephyr-project-manager/
+# -v sqli -s scan_dir -p /var/www/html/wp-content/plugins/broken-link-repair/
+
+#xss:
+# -v sqli -s scan_dir -p /var/www/html/wp-content/plugins/wpschoolpress/
+
 
 def main():
     argument_parser = ArgumentParser()
@@ -34,13 +42,16 @@ def main():
         result_reader = ResultReader()
         result = result_reader.read()
 
-    print("\n Start of opcode analysis \n")
+    print("\n coping data... \n")
     op_parser.parse_error_correction(result)
+    print("\n opcode`s parsing... \n")
     EPs = op_parser.parse_file("../Logs/opcodes.txt")
+    print("\n output entry points... \n")
     op_parser.print_entry_points(EPs)
+    print("\n Start of opcode analysis: \n")
     signature_analyzer.init_analyze(EPs)
     result.close()
-    print("\n End of opcode analysis \n")
+    print("\n End of opcode analysis. \n")
 
 
 if __name__ == '__main__':

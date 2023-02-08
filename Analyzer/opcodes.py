@@ -40,6 +40,7 @@ class EntryPoint:
         self.number_of_ops = 0
         self.compiled_variables = []
         self.opcodes = []
+        self.analyze_result = ""
 
     def set_compiled_vars(self, vars_str):
         for vs in vars_str.split(','):

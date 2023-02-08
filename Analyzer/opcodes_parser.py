@@ -7,13 +7,14 @@ filename_pattern = re.compile(r"^filename:\s*(.*?\.php)")
 funcname_pattern = re.compile(r"^function name:\s*(.*?)\n")
 ops_number_pattern = re.compile(r"^number of ops:\s*(.*?)\n")
 compiled_vars_pattern = re.compile(r"^compiled vars:\s*(.*?)\n")
+fetch_exclude = re.compile(r".=|^global$|^unknown$|^E$|^local$|^global lock$")
 
 
 def parse_opcode_line(opcode_line):
     line = opcode_line.split('  ')
     #dbg_line = line
     line = [x.replace('*', '').replace('>', '').replace('\n', '').strip() for x in line]
-    line = [x for x in line if x != 'E' and x != 'global' and x != '+=']
+    line = [x for x in line if re.search(fetch_exclude, x) is None]
     line_items = []
 
     for l in line:
@@ -72,10 +73,12 @@ def parse_file(filename):
             EP = EntryPoint()
             done = 0
             while True:
-                line = file.readline()
-                if not line:
-                    break
                 if done == 1:
+                    break
+
+                line = file.readline()
+
+                if not line:
                     break
 
                 tmp_regex_object = re.search(filename_pattern, line)
@@ -93,10 +96,14 @@ def parse_file(filename):
                         break
 
                     tmp_regex_object = re.search(funcname_pattern, line)
+
+                    if tmp_regex_object is None:
+                        #print('parse_file: Undocumented function call!')
+                        break
+
                     func = line[tmp_regex_object.regs[1][0]:tmp_regex_object.regs[1][1]]
 
                     if EntryPoints.get(EP.filename).get(func):
-                        done = 1
                         break
 
                     if func:
@@ -110,15 +117,14 @@ def parse_file(filename):
                     tmp_regex_object = re.search(ops_number_pattern, line)
 
                     if tmp_regex_object is None:
-                        print('parse_file: Undocumented function call!')
-                        print('Function name: ', func)
-                        done = 1
+                        #print('parse_file: Undocumented function call!')
+                        #print('Function name: ', func)
                         break
 
                     ops_num = line[tmp_regex_object.regs[1][0]:tmp_regex_object.regs[1][1]]
 
                     if ops_num is None:
-                        print('ops_num is None')
+                        #print('ops_num is None')
                         break
 
                     # if not re.match(r"^[-+]?[0-9]+\\n$", ops_num['value'], re.M):
@@ -132,7 +138,12 @@ def parse_file(filename):
                         break
 
                     tmp_regex_object = re.search(compiled_vars_pattern, line)
+
+                    if tmp_regex_object is None:
+                        break
+
                     vars_str = line[tmp_regex_object.regs[1][0]:tmp_regex_object.regs[1][1]]
+
                     if vars_str:
                         EP.set_compiled_vars(vars_str)
 
@@ -154,12 +165,14 @@ def parse_file(filename):
                             EP.opcodes.append(op)
                         else:
                             if not re.match(r'^\s*$', line):
-                                print("parse_file: Error, unexpected line.")
-                                print("line:", line)
+                                #print("parse_file: Error, unexpected line.")
+                                #print("line:", line)
                                 break
 
                     EntryPoints[EP.filename][EP.function_name] = EP
                     done = 1
+                else:
+                    break
 
     file.close()
 
