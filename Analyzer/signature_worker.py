@@ -225,7 +225,10 @@ class SignatureWorker:
                     if tmp_return_log and tmp_return_log != "[]":
                         call_func.func_vuln_score = opcodes.VarScore.DANGEROUS
                         var.var_score = opcodes.VarScore.DANGEROUS
-                        return "[" + self._print_var_status(var, fcall_buffer[fcall_count - 1].name, opcode.index, EP,
+                        vuln_func_name = fcall_buffer[0].name
+                        for func in fcall_buffer[1:]:
+                            vuln_func_name += "->" + func.name
+                        return "[" + self._print_var_status(var, vuln_func_name, opcode.index, EP,
                                                             statement) + ',' + tmp_return_log + "]"
 
         def send_safe_flag_case(call_func, opcode, vars_map, operand_number=0):
@@ -295,6 +298,9 @@ class SignatureWorker:
                     if signature.def_functions[0].operation in opcode.operation \
                             or signature.signature[0].operation in opcode.operation:
 
+                        if detect_signature:
+                            break
+
                         if "INIT_" in opcode.operation and "CALL" in opcode.operation:
 
                             # если мы во вложенном fcall, и уже стоит флаг fcall_flag = 2
@@ -336,24 +342,30 @@ class SignatureWorker:
                                 if var.ID in opcode.operands and var.var_score == opcodes.VarScore.UNSECURE:
                                     var.var_score = opcodes.VarScore.DANGEROUS
                                     return_status_log += ',' if return_status_log != "[" else ''
-                                    return_status_log += self._print_var_status(var, fcall_buffer[
-                                        fcall_count - 1].name, opcode.index, EP,
+                                    vuln_func_name = fcall_buffer[0].name
+                                    for func in fcall_buffer[1:]:
+                                        vuln_func_name += "->" + func.name
+                                    return_status_log += self._print_var_status(var, vuln_func_name, opcode.index, EP,
                                                                                 statement)
                             for cv in compiled_vars:
                                 var = temporary_vars.get(cv)
                                 if var.ID in opcode.operands and var.var_score == opcodes.VarScore.UNSECURE:
                                     var.var_score = opcodes.VarScore.DANGEROUS
                                     return_status_log += ',' if return_status_log != "[" else ''
-                                    return_status_log += self._print_var_status(var, fcall_buffer[
-                                        fcall_count - 1].name, opcode.index, EP,
+                                    vuln_func_name = fcall_buffer[0].name
+                                    for func in fcall_buffer[1:]:
+                                        vuln_func_name += "->" + func.name
+                                    return_status_log += self._print_var_status(var, vuln_func_name, opcode.index, EP,
                                                                                 statement)
                             for rv in returned_vars:
                                 var = returned_vars.get(rv)
                                 if var.ID in opcode.operands and var.var_score == opcodes.VarScore.UNSECURE:
                                     var.var_score = opcodes.VarScore.DANGEROUS
                                     return_status_log += ',' if return_status_log != "[" else ''
-                                    return_status_log += self._print_var_status(var, fcall_buffer[
-                                        fcall_count - 1].name, opcode.index, EP,
+                                    vuln_func_name = fcall_buffer[0].name
+                                    for func in fcall_buffer[1:]:
+                                        vuln_func_name += "->" + func.name
+                                    return_status_log += self._print_var_status(var, vuln_func_name, opcode.index, EP,
                                                                                 statement)
                             detect_signature = 1
                             break
@@ -379,7 +391,9 @@ class SignatureWorker:
                                 (operand_var.var_score == opcodes.VarScore.UNSECURE or
                                  operand_var.var_score == opcodes.VarScore.DANGEROUS):
                             return_status_log += ',' if return_status_log != "[" else ''
-
+                            vuln_func_name = fcall_buffer[0].name
+                            for func in fcall_buffer[1:]:
+                                vuln_func_name += "->" + func.name
                             return_status_log += self._print_var_status(operand_var,
                                                                         fcall_buffer[fcall_count - 1].name if len(
                                                                             fcall_buffer) > 0
@@ -505,6 +519,9 @@ class SignatureWorker:
                     operand_var = temporary_vars.get(opcode.operands[0]) or returned_vars.get(
                         opcode.operands[0]) or compiled_vars.get(opcode.operands[0])
 
+                    if operand_var:
+                        operand_var.var_score = opcodes.VarScore.UNDEFINED
+
                     var_score = opcodes.VarScore.SECURE
                     # if operand_var:
                     #     var_score = operand_var.var_score
@@ -550,7 +567,7 @@ class SignatureWorker:
                 # FETCH_DIM_R    ~1      ~2, ~3 (любые комбинации пар переменных ~, $, ! и строк "")
                 # FETCH_DIM_R    !1      ~2, ~3 (любые комбинации пар переменных ~, $, ! и строк "")
                 # FETCH_DIM_R    $1      ~2, ~3 (любые комбинации пар переменных ~, $, ! и строк "")
-                if opcode.operation == "FETCH_DIM_R":
+                if opcode.operation == "FETCH_DIM_R" and len(opcode.operands) > 0:
                     operand_var = temporary_vars.get(opcode.operands[0]) or returned_vars.get(
                         opcode.operands[0]) or compiled_vars.get(opcode.operands[0])
 
@@ -754,8 +771,10 @@ class SignatureWorker:
                                         var.var_score = opcodes.VarScore.DANGEROUS
                                         call_func.func_vuln_score = opcodes.VarScore.DANGEROUS
                                         return_status_log += ',' if return_status_log != "[" else ''
-                                        return_status_log += self._print_var_status(var, fcall_buffer[
-                                            fcall_count - 1].name,
+                                        vuln_func_name = fcall_buffer[0].name
+                                        for func in fcall_buffer[1:]:
+                                            vuln_func_name += "->" + func.name
+                                        return_status_log += self._print_var_status(var, vuln_func_name,
                                                                                     opcode.index, EP,
                                                                                     statement)
                             if re.match(r"!\d", opcode.operands[0]):
@@ -765,8 +784,10 @@ class SignatureWorker:
                                         var.var_score = opcodes.VarScore.DANGEROUS
                                         call_func.func_vuln_score = opcodes.VarScore.DANGEROUS
                                         return_status_log += ',' if return_status_log != "[" else ''
-                                        return_status_log += self._print_var_status(var, fcall_buffer[
-                                            fcall_count - 1].name,
+                                        vuln_func_name = fcall_buffer[0].name
+                                        for func in fcall_buffer[1:]:
+                                            vuln_func_name += "->" + func.name
+                                        return_status_log += self._print_var_status(var, vuln_func_name,
                                                                                     opcode.index, EP,
                                                                                     statement)
                             if re.match(r"\$\d", opcode.operands[0]):
@@ -776,8 +797,10 @@ class SignatureWorker:
                                         var.var_score = opcodes.VarScore.DANGEROUS
                                         call_func.func_vuln_score = opcodes.VarScore.DANGEROUS
                                         return_status_log += ',' if return_status_log != "[" else ''
-                                        return_status_log += self._print_var_status(var, fcall_buffer[
-                                            fcall_count - 1].name,
+                                        vuln_func_name = fcall_buffer[0].name
+                                        for func in fcall_buffer[1:]:
+                                            vuln_func_name += "->" + func.name
+                                        return_status_log += self._print_var_status(var, vuln_func_name,
                                                                                     opcode.index, EP,
                                                                                     statement)
                         continue

@@ -22,7 +22,11 @@ from Analyzer.arguments.parser import ArgumentParser, ScanMode
 # -v sqli -s scan_dir -p /var/www/html/wp-content/plugins/leaguemanager/
 
 # -v sqli -s scan_dir -p /var/www/html/wp-content/plugins/zephyr-project-manager/
-# -v sqli -s scan_dir -p /var/www/html/wp-content/plugins/broken-link-repair/
+# -v sqli -s scan_dir -p /var/www/html/wp-content/plugins/easync-booking/
+# -v sqli -s scan_dir -p /var/www/html/wp-content/plugins/usc-e-shop/
+# -v sqli -s scan_dir -p /var/www/html/wp-content/plugins/wp-hotel-booking/
+# -v sqli -s scan_dir -p /var/www/html/wp-content/plugins/church-admin/
+
 
 #xss:
 # -v sqli -s scan_dir -p /var/www/html/wp-content/plugins/wpschoolpress/

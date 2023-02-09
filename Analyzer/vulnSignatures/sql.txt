@@ -8,7 +8,7 @@ op_number: 1
 vuln_function:
 CALL             'query'
 def_functions:
-CALL             'mysql_escape_string', 'mysql_real_escape_string', 'intval', 'prepare', 'sanitize_text_field'
+CALL             'mysql_escape_string', 'mysql_real_escape_string', 'intval', 'prepare', 'sanitize_text_field', htmlspecialchars, addslashes, sanitize_params_submitted, esc_sql
 
 signature:
 name: leak_db_from_updatequestiondata
@@ -17,7 +17,7 @@ op_number: 1
 vuln_function:
 CALL             'updatequestiondata'
 def_functions:
-CALL             'mysql_escape_string', 'mysql_real_escape_string', 'intval', 'prepare', 'sanitize_text_field'
+CALL             'mysql_escape_string', 'mysql_real_escape_string', 'intval', 'prepare', 'sanitize_text_field', htmlspecialchars, addslashes, sanitize_params_submitted, esc_sql
 
 signature:
 name: leak_db_from_get_results
@@ -26,7 +26,7 @@ op_number: 1
 vuln_function:
 CALL             'get_results'
 def_functions:
-CALL             'mysql_escape_string', 'mysql_real_escape_string', 'intval', 'prepare', 'sanitize_text_field'
+CALL             'mysql_escape_string', 'mysql_real_escape_string', 'intval', 'prepare', 'sanitize_text_field', htmlspecialchars, addslashes, sanitize_params_submitted, esc_sql
 
 signature:
 name: leak_db_from_get_var
@@ -35,7 +35,7 @@ op_number: 1
 vuln_function:
 CALL             'get_var'
 def_functions:
-CALL             'mysql_escape_string', 'mysql_real_escape_string', 'intval', 'prepare', 'sanitize_text_field'
+CALL             'mysql_escape_string', 'mysql_real_escape_string', 'intval', 'prepare', 'sanitize_text_field', htmlspecialchars, addslashes, sanitize_params_submitted, esc_sql
 
 signature:
 name: leak_db_from_get_var
@@ -44,7 +44,7 @@ op_number: 1
 vuln_function:
 CALL             'get_row'
 def_functions:
-CALL             'mysql_escape_string', 'mysql_real_escape_string', 'intval', 'prepare', 'sanitize_text_field'
+CALL             'mysql_escape_string', 'mysql_real_escape_string', 'intval', 'prepare', 'sanitize_text_field', htmlspecialchars, addslashes, sanitize_params_submitted, esc_sql
 
 signature:
 name: leak_db_from_get_var
@@ -53,4 +53,4 @@ op_number: 1
 vuln_function:
 CALL             'get_col'
 def_functions:
-CALL             'mysql_escape_string', 'mysql_real_escape_string', 'intval', 'prepare', 'sanitize_text_field'
+CALL             'mysql_escape_string', 'mysql_real_escape_string', 'intval', 'prepare', 'sanitize_text_field', htmlspecialchars, addslashes, sanitize_params_submitted, esc_sql
